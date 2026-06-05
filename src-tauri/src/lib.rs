@@ -1,7 +1,7 @@
 mod commands;
 mod db;
 
-use commands::{load_term, save_term};
+use commands::{delete_term, load_term, save_term, search_terms};
 use rusqlite::Connection;
 use std::sync::Mutex;
 use tauri::Manager;
@@ -31,7 +31,12 @@ pub fn run() {
 
             Ok(())
         })
-        .invoke_handler(tauri::generate_handler![load_term, save_term])
+        .invoke_handler(tauri::generate_handler![
+            load_term,
+            search_terms,
+            save_term,
+            delete_term
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
