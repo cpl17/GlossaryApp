@@ -1,0 +1,4 @@
+[[permission]]
+identifier = "allow-glossary-commands"
+description = "Allow glossary database commands"
+commands.allow = ["load_term", "save_term"]
